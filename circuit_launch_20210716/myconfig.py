@@ -121,20 +121,24 @@ THROTTLE_REVERSE_PWM = 345      #pwm value for max reverse throttle
 # # pytorch models: (resnet18)
 # DEFAULT_MODEL_TYPE = 'linear'
 # BATCH_SIZE = 128                #how many records to use when doing one pass of gradient decent. Use a smaller number if your gpu is running out of memory.
-# TRAIN_TEST_SPLIT = 0.8          #what percent of records to use for training. the remaining used for validation.
-# MAX_EPOCHS = 100                #how many times to visit all records of your data
+TRAIN_TEST_SPLIT = 0.9          #what percent of records to use for training.
+# the remaining used for validation.
+MAX_EPOCHS = 200                #how many times to visit all records of
+# your data
 # SHOW_PLOT = True                #would you like to see a pop up display of final loss?
 # VERBOSE_TRAIN = True            #would you like to see a progress bar with text during training?
 # USE_EARLY_STOP = True           #would you like to stop the training if we see it's not improving fit?
-# EARLY_STOP_PATIENCE = 5         #how many epochs to wait before no improvement
-# MIN_DELTA = .0005               #early stop will want this much loss change before calling it improved.
+EARLY_STOP_PATIENCE = 12         #how many epochs to wait before no
+# improvement
+MIN_DELTA = .0000001               #early stop will want this much loss change
+# before calling it improved.
 # PRINT_MODEL_SUMMARY = True      #print layers and weights to stdout
 # OPTIMIZER = None                #adam, sgd, rmsprop, etc.. None accepts default
 # LEARNING_RATE = 0.001           #only used when OPTIMIZER specified
 # LEARNING_RATE_DECAY = 0.0       #only used when OPTIMIZER specified
 # SEND_BEST_MODEL_TO_PI = False   #change to true to automatically send best model during training
 # CREATE_TF_LITE = True           # automatically create tflite model in training
-# CREATE_TENSOR_RT = False        # automatically create tensorrt model in training
+CREATE_TENSOR_RT = True        # automatically create tensorrt model in training
 # 
 # PRUNE_CNN = False               #This will remove weights from your model. The primary goal is to increase performance.
 # PRUNE_PERCENT_TARGET = 75       # The desired percentage of pruning.
@@ -143,11 +147,12 @@ THROTTLE_REVERSE_PWM = 345      #pwm value for max reverse throttle
 # PRUNE_EVAL_PERCENT_OF_DATASET = .05  # percent of dataset used to perform evaluation of model.
 # 
 # # Region of interest cropping
-# # only supported in Categorical and Linear models.
-# # If these crops values are too large, they will cause the stride values to become negative and the model with not be valid.
 ROI_CROP_TOP = 45                    #the number of rows of pixels to ignore on the top of the image
 # ROI_CROP_BOTTOM = 0                 #the number of rows of pixels to ignore on the bottom of the image
-# 
+# Augmentations and Transformations
+# AUGMENTATIONS = ['MULTIPLY', 'BLUR']
+# TRANSFORMATIONS = ['CROP']         # uncomment when using the cropped models
+#
 # 
 # #Model transfer options
 # #When copying weights during a model transfer operation, should we freeze a certain number of layers
@@ -175,7 +180,7 @@ JOYSTICK_DEADZONE = 0.1            # when non zero, this is the smallest throttl
 # #For the categorical model, this limits the upper bound of the learned throttle
 # #it's very IMPORTANT that this value is matched from the training PC config.py and the robot.py
 # #and ideally wouldn't change once set.
-# MODEL_CATEGORICAL_MAX_THROTTLE_RANGE = 0.5
+MODEL_CATEGORICAL_MAX_THROTTLE_RANGE = 0.8
 # 
 # #RNN or 3D
 # SEQUENCE_LENGTH = 3             #some models use a number of images over time. This controls how many.
