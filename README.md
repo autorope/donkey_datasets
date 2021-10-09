@@ -1,6 +1,8 @@
 # Donkey Car Datasets
 **_Note_:** All tub data is in donkey 4.X format.
 
+In this repository we store datasets for people to download and train their own pilots. In addition we also provide pre-trained models for some datasets (so far only the circuit launch set). This should allow you to run a donkey car pilot without the need to train one yourself. 
+
 # The large dataset
 This is the place for donkey datasets. The large dataset that was originally 
 uploaded by Tawn is in the folder `large_dataset`. Here are some example images:
